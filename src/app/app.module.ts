@@ -11,6 +11,7 @@ import { Network } from '@ionic-native/network';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { NetworkmeterProvider } from '../providers/networkmeter/networkmeter';
+import { OpenNativeSettings } from '@ionic-native/open-native-settings';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NetworkmeterProvider } from '../providers/networkmeter/networkmeter';
     Network,
     LocalNotifications,
     BackgroundMode,
-    NetworkmeterProvider
+    NetworkmeterProvider,
+    OpenNativeSettings
   ]
 })
 export class AppModule {}

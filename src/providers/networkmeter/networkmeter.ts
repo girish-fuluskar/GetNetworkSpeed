@@ -15,6 +15,11 @@ export class NetworkmeterProvider {
   @Cordova()
   initiateDownload():Promise<String>{
     return;
-  }   
+  }
+  
+  @Cordova()
+  getBitmapFromString():Promise<String>{
+    return;
+  }
 
 }
