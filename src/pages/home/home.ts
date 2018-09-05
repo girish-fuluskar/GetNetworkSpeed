@@ -69,33 +69,33 @@ export class HomePage {
           //every: sch
           //trigger: {in: 1}
         });
-      })
-
-      // me.networkmeter.getBitmapFromString().then(result =>{
-      //   console.log("Bitmap: " + result);
-      // })
-      
-    },1000);
-
-    // setTimeout(function(){
-    //   if (me.network.type !== 'none') {
         
-    //     me.networkmeter.initiateDownload().then(result =>{
-    //       console.log("Speed: " + result);
-          
-    //       me.localNotifications.schedule({
-    //         id: 1,
-    //         title: 'Network Status',
-    //         text:  result.toString()
-    //         //every: sch
-    //         //trigger: {in: 1}
-    //       });
+      //   var byteCharacters = atob(result.toString());
+      //   var byteArrays = [];
+      //   var sliceSize = 512;
 
-    //     })
+      //   console.log("byteCharacters ", byteCharacters);
+      //   console.log("byteCharacters Length ", byteCharacters.length);
 
-    //   }
-    //   me.getAll();
-    // },1000);
+      //   for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+      //       var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+      //       var byteNumbers = new Array(slice.length);
+      //       for (var i = 0; i < slice.length; i++) {
+      //           byteNumbers[i] = slice.charCodeAt(i);
+      //       }
+
+      //       var byteArray = new Uint8Array(byteNumbers);
+
+      //       byteArrays.push(byteArray);
+      //   }
+
+      // var blob = new Blob(byteArrays, {type: "image/png"});
+
+
+      //   console.log("Base64: ", blob);
+      })
+    },1000);
   }
 
   //Delete
