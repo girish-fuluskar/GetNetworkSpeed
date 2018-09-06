@@ -31,14 +31,11 @@ export class HomePage {
       this.backgroundMode.on('activate').subscribe(async(stop) => {
         this.backgroundMode.disableWebViewOptimizations();
         console.log('activated');
-        //this.openNativeSettings.open("battery_optimization");
         this.getAll();
       });
 
       this.backgroundMode.on('deactivate').subscribe(async (stop) => {
-        //this.backgroundMode.disableWebViewOptimizations();
         console.log('Deactivated');
-        //this.openNativeSettings.open("battery_optimization");
         this.getAll();
       });
 
@@ -69,104 +66,12 @@ export class HomePage {
           //every: sch
           //trigger: {in: 1}
         });
-        
-      //   var byteCharacters = atob(result.toString());
-      //   var byteArrays = [];
-      //   var sliceSize = 512;
+      })
 
-      //   console.log("byteCharacters ", byteCharacters);
-      //   console.log("byteCharacters Length ", byteCharacters.length);
-
-      //   for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-      //       var slice = byteCharacters.slice(offset, offset + sliceSize);
-
-      //       var byteNumbers = new Array(slice.length);
-      //       for (var i = 0; i < slice.length; i++) {
-      //           byteNumbers[i] = slice.charCodeAt(i);
-      //       }
-
-      //       var byteArray = new Uint8Array(byteNumbers);
-
-      //       byteArrays.push(byteArray);
-      //   }
-
-      // var blob = new Blob(byteArrays, {type: "image/png"});
-
-
-      //   console.log("Base64: ", blob);
+      //Bitmap
+      me.networkmeter.getBitmapFromString().then(result => {
+        console.log("Bitmap: " + result)
       })
     },1000);
   }
-
-  //Delete
-
-    //Getteing Network Speed
-    private async getDownloadSpeed(): Promise<string> {
-      return await this.MeasureConnectionSpeed();
-    }
-
-      //Measuring Network Speed
-  private MeasureConnectionSpeed(): Promise<string> {
-    return new Promise((resolve) => {
-      var imageAddr = "http://www.kenrockwell.com/contax/images/g2/examples/31120037-5mb.jpg";
-      var downloadSize = 4995374; //bytes
-
-
-      var startTime, endTime;
-      var download = new Image();
-      download.onload = () => {
-        endTime = (new Date()).getTime();
-
-        var duration = (endTime - startTime) / 1000;
-        var bitsLoaded = downloadSize * 8;
-        var speedBps: any = (bitsLoaded / duration).toFixed(2);
-        var speedKbps: any = (speedBps / 1024).toFixed(2);
-        var speedMbps = (speedKbps / 1024).toFixed(2);
-        this.ShowProgressMessage(
-          "Your connection speed is:" +
-          speedBps + " bps, "+
-          speedKbps + " kbps, "+
-          speedMbps + " Mbps"
-        );
-        //console.log(this.ShowProgressMessage);
-        resolve(this.ShowProgressMessage.toString());
-      }
-      startTime = (new Date()).getTime();
-      var cacheBuster = "?nnn=" + startTime;
-      download.src = imageAddr + cacheBuster;
-    });
-  }
-
-    //Network Progress Message
-    private ShowProgressMessage(msg): void {
-      if (console) {
-        if (typeof msg == "string") {
-          console.log(msg);
-        } else {
-          //for (var i = 0; i < msg.length; i++) {
-            console.log(msg);
-          //}
-        }
-        
-        this.SendNetworkNotification(msg, 'minute');
-      }
-  
-      var oProgress = document.getElementById("progress");
-      if (oProgress) {
-        var actualHTML = (typeof msg == "string") ? msg : msg.join("<br />");
-        oProgress.innerHTML = actualHTML;
-      }
-    }
-
-    private SendNetworkNotification(msg, sch): void{
-      this.localNotifications.schedule({
-        id: 1,
-        title: 'Network Status',
-        text: msg
-        //every: sch
-        //trigger: {in: 1}
-      });
-    }
-
-
 }
