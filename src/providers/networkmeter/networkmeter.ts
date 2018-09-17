@@ -9,6 +9,15 @@ import {Plugin, Cordova, CordovaProperty, CordovaInstance, IonicNativePlugin} fr
   platforms:['Android','iOS']
 })
 
+// @Plugin({
+//   pluginName: "networkspeed1",
+//   plugin:"cordova-plugin-networkspeed1",
+//   pluginRef:"NetworkMeter",
+//   repo:'https://github.com/girish-fuluskar/NetworkSpeed1.git',
+//   platforms:['Android','iOS']
+// })
+
+
 @Injectable()
 export class NetworkmeterProvider {
 
@@ -21,5 +30,10 @@ export class NetworkmeterProvider {
   getBitmapFromString():Promise<String>{
     return;
   }
+
+  // @Cordova()
+  // startServiceNow(con: any):Promise<String>{
+  //   return;
+  // }
 
 }
