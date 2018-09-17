@@ -40,43 +40,38 @@ export class HomePage {
         this.getAll();
       });
 
-      document.addEventListener("abort", this.relaunch, false);
-
-
       this.getAll();
       this.backgroundMode.enable();
     })
-  }
-
-  public relaunch(): void{
-    this.platform.exitApp();
   }
 
  public getAll(): void {
     var me =this;
     let s;
     setTimeout(function(){
-      console.log("Calling Now");
-      me.networkmeter.initiateDownload().then(result =>{
-        console.log("Speed: " + result);
-        me.getAll();
-        me.localNotifications.schedule({
-          id: 1,
-          title: 'Network Status',
-          text:  result.toString()
-          //every: sch
-          //trigger: {in: 1}
-        });
-      })
 
       //Bitmap
       me.networkmeter.getBitmapFromString().then(result => {
         console.log("Bitmap: " + result);
+
+        me.networkmeter.initiateDownload().then(result =>{
+          console.log("Calling Now");
+          console.log("Speed: " + result);
+          me.getAll();
+          me.localNotifications.schedule({
+            id: 1,
+            title: 'Network Status',
+            text:  result.toString()
+            //every: sch
+            //trigger: {in: 1}
+          });
+        })
       })
 
-      // me.networkmeter.startServiceNow(me).then(result => {
-      //   console.log("New Network: " + result);
+      // me.networkmeter.startServiceNow(me).then(result =>{
+      //   console.log("wwwwwww: " + result);
       // })
+
     },1000);
   }
 }

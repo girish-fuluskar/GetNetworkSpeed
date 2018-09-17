@@ -13,7 +13,7 @@ import { Observable } from 'rxjs/Observable';
 // @Plugin({
 //   pluginName: "networkspeed1",
 //   plugin:"cordova-plugin-networkspeed1",
-//   pluginRef:"NetworkSpeed1",
+//   pluginRef:"NetworkMeter",
 //   repo:'https://github.com/girish-fuluskar/NetworkSpeed1.git',
 //   platforms:['Android','iOS']
 // })
@@ -31,10 +31,8 @@ export class NetworkmeterProvider {
     return;
   }
 
-  // @Cordova()
-  // startServiceNow(con:any):Promise<any>{
+  //@Cordova
+  // startServiceNow(con: any):Promise<String>{
   //   return;
   // }
-
-
 }
