@@ -10,6 +10,7 @@ import { OpenNativeSettings } from '@ionic-native/open-native-settings';
 
 
 
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -70,8 +71,12 @@ export class HomePage {
 
       //Bitmap
       me.networkmeter.getBitmapFromString().then(result => {
-        console.log("Bitmap: " + result)
+        console.log("Bitmap: " + result);
       })
+
+      // me.networkmeter.startServiceNow(me).then(result => {
+      //   console.log("New Network: " + result);
+      // })
     },1000);
   }
 }

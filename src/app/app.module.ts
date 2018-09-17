@@ -13,6 +13,7 @@ import { BackgroundMode } from '@ionic-native/background-mode';
 import { NetworkmeterProvider } from '../providers/networkmeter/networkmeter';
 import { OpenNativeSettings } from '@ionic-native/open-native-settings';
 
+
 @NgModule({
   declarations: [
     MyApp,
